@@ -40,7 +40,7 @@ namespace ContactosAPI.Controllers
                 .Where(x => x.Mostrar)
                 .Include(x => x.Correos)
                 .Include(x => x.Telefonos)
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == id);         
             return contacto;
         }
 
@@ -91,7 +91,7 @@ namespace ContactosAPI.Controllers
             context.Update(contacto);
 
             await context.SaveChangesAsync();
-            return NoContent();
+            return Ok("Contacto actualizado");
         }
 
         [HttpPatch("{id:int}")]
